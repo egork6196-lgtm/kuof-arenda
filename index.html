@@ -50,7 +50,7 @@
         <div class="catalog-heading">
           <div>
             <h2 id="catalog-title">Помещения в аренду</h2>
-            <p>Выберите тип помещения, чтобы посмотреть условия.</p>
+            <p>Выберите тип помещения.</p>
           </div>
           <fieldset class="category-select" data-category-select hidden>
             <legend class="sr-only">Тип помещения</legend>
@@ -60,62 +60,74 @@
           </fieldset>
         </div>
 
-        <article class="property" id="office" data-category-panel="office" aria-labelledby="office-title">
-          <div class="property-copy">
-            <div class="property-heading"><h3 id="office-title">Офисы</h3><span class="area">от 10 м²</span></div>
-            <p>Помещения для работы команды и приёма клиентов. Есть варианты с ремонтом и без него.</p>
-            <ul class="property-features"><li>С ремонтом</li><li>Без ремонта</li></ul>
-            <button class="button button-outline" type="button" data-open-detail="office-detail" aria-haspopup="dialog" hidden>Подробнее <span class="icon icon-up-right" aria-hidden="true"></span></button>
-          </div>
-          <div class="photo-gallery" role="group" aria-label="Фотографии офиса">
-            <a class="photo-gallery__link" href="assets/office-1.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-              <img src="assets/office-1.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Офис с двумя белыми дверями и окном">
-              <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-            </a>
-            <a class="photo-gallery__link" href="assets/office-2.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-              <img src="assets/office-2.webp" width="1002" height="1280" loading="lazy" decoding="async" alt="Офис с узорчатой напольной плиткой и выходом">
-              <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-            </a>
-          </div>
-        </article>
+        <section class="listing-grid" id="office" data-category-panel="office" aria-label="Офисы">
+          <article class="listing-card">
+            <img src="assets/office-1.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Офис с двумя белыми дверями и окном">
+            <div class="listing-card__body">
+              <h3>Офис с окном</h3>
+              <div class="listing-card__details">
+                <p>Описание добавим позже.</p>
+                <button class="button button-outline" type="button" data-open-detail aria-haspopup="dialog" aria-controls="listing-detail" hidden>Подробнее<span class="sr-only"> — Офис с окном</span><span class="icon icon-up-right" aria-hidden="true"></span></button>
+              </div>
+            </div>
+          </article>
+          <article class="listing-card">
+            <img src="assets/office-2.webp" width="1002" height="1280" loading="lazy" decoding="async" alt="Офис с узорчатой напольной плиткой и выходом">
+            <div class="listing-card__body">
+              <h3>Офис с плиточным полом</h3>
+              <div class="listing-card__details">
+                <p>Описание добавим позже.</p>
+                <button class="button button-outline" type="button" data-open-detail aria-haspopup="dialog" aria-controls="listing-detail" hidden>Подробнее<span class="sr-only"> — Офис с плиточным полом</span><span class="icon icon-up-right" aria-hidden="true"></span></button>
+              </div>
+            </div>
+          </article>
+        </section>
 
-        <article class="property" id="storage" data-category-panel="storage" aria-labelledby="storage-title">
-          <div class="property-copy">
-            <div class="property-heading"><h3 id="storage-title">Склады</h3><span class="area">от 50 м²</span></div>
-            <p>Площади для хранения товаров и материалов. На территорию можно заехать через один из четырёх въездов.</p>
-            <ul class="property-features"><li>4 въезда</li><li>Грузовые лифты</li></ul>
-            <button class="button button-outline" type="button" data-open-detail="storage-detail" aria-haspopup="dialog" hidden>Подробнее <span class="icon icon-up-right" aria-hidden="true"></span></button>
-          </div>
-          <div class="photo-gallery" role="group" aria-label="Фотографии склада">
-            <a class="photo-gallery__link" href="assets/storage-1.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-              <img src="assets/storage-1.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Складской зал с колоннами и окнами по обеим сторонам">
-              <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-            </a>
-            <a class="photo-gallery__link" href="assets/storage-2.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-              <img src="assets/storage-2.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Складское помещение с окном и батареей">
-              <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-            </a>
-          </div>
-        </article>
+        <section class="listing-grid" id="storage" data-category-panel="storage" aria-label="Склады">
+          <article class="listing-card">
+            <img src="assets/storage-1.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Складской зал с колоннами и окнами по обеим сторонам">
+            <div class="listing-card__body">
+              <h3>Склад с колоннами</h3>
+              <div class="listing-card__details">
+                <p>Описание добавим позже.</p>
+                <button class="button button-outline" type="button" data-open-detail aria-haspopup="dialog" aria-controls="listing-detail" hidden>Подробнее<span class="sr-only"> — Склад с колоннами</span><span class="icon icon-up-right" aria-hidden="true"></span></button>
+              </div>
+            </div>
+          </article>
+          <article class="listing-card">
+            <img src="assets/storage-2.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Складское помещение с окном и батареей">
+            <div class="listing-card__body">
+              <h3>Склад с окном</h3>
+              <div class="listing-card__details">
+                <p>Описание добавим позже.</p>
+                <button class="button button-outline" type="button" data-open-detail aria-haspopup="dialog" aria-controls="listing-detail" hidden>Подробнее<span class="sr-only"> — Склад с окном</span><span class="icon icon-up-right" aria-hidden="true"></span></button>
+              </div>
+            </div>
+          </article>
+        </section>
 
-        <article class="property" id="production" data-category-panel="production" aria-labelledby="production-title">
-          <div class="property-copy">
-            <div class="property-heading"><h3 id="production-title">Производство</h3><span class="area">от 65 м²</span></div>
-            <p>Цеха с высокими потолками и мощностями для подключения производственного оборудования.</p>
-            <ul class="property-features"><li>Высокие потолки</li><li>Кран-балка на площадке</li></ul>
-            <button class="button button-outline" type="button" data-open-detail="production-detail" aria-haspopup="dialog" hidden>Подробнее <span class="icon icon-up-right" aria-hidden="true"></span></button>
-          </div>
-          <div class="photo-gallery" role="group" aria-label="Фотографии цеха">
-            <a class="photo-gallery__link" href="assets/production-1.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-              <img src="assets/production-1.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Просторный цех с бетонным полом и белыми колоннами">
-              <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-            </a>
-            <a class="photo-gallery__link" href="assets/production-2.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-              <img src="assets/production-2.webp" width="902" height="1280" loading="lazy" decoding="async" alt="Цех с бетонным полом и электрощитом">
-              <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-            </a>
-          </div>
-        </article>
+        <section class="listing-grid" id="production" data-category-panel="production" aria-label="Производство">
+          <article class="listing-card">
+            <img src="assets/production-1.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Просторный цех с бетонным полом и белыми колоннами">
+            <div class="listing-card__body">
+              <h3>Цех с колоннами</h3>
+              <div class="listing-card__details">
+                <p>Описание добавим позже.</p>
+                <button class="button button-outline" type="button" data-open-detail aria-haspopup="dialog" aria-controls="listing-detail" hidden>Подробнее<span class="sr-only"> — Цех с колоннами</span><span class="icon icon-up-right" aria-hidden="true"></span></button>
+              </div>
+            </div>
+          </article>
+          <article class="listing-card">
+            <img src="assets/production-2.webp" width="902" height="1280" loading="lazy" decoding="async" alt="Цех с бетонным полом и электрощитом">
+            <div class="listing-card__body">
+              <h3>Цех с электрощитом</h3>
+              <div class="listing-card__details">
+                <p>Описание добавим позже.</p>
+                <button class="button button-outline" type="button" data-open-detail aria-haspopup="dialog" aria-controls="listing-detail" hidden>Подробнее<span class="sr-only"> — Цех с электрощитом</span><span class="icon icon-up-right" aria-hidden="true"></span></button>
+              </div>
+            </div>
+          </article>
+        </section>
       </div>
     </section>
 
@@ -151,62 +163,16 @@
     </div>
   </footer>
 
-  <dialog id="office-detail" aria-labelledby="office-detail-title">
+  <dialog id="listing-detail" aria-labelledby="listing-detail-title">
     <div class="detail">
       <button class="detail-close" type="button" data-close-detail aria-label="Закрыть" autofocus><span class="icon icon-close" aria-hidden="true"></span></button>
-      <h2 id="office-detail-title">Офисы</h2>
-      <div class="photo-gallery" role="group" aria-label="Фотографии офиса">
-        <a class="photo-gallery__link" href="assets/office-1.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-          <img src="assets/office-1.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Офис с двумя белыми дверями и окном">
-          <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-        </a>
-        <a class="photo-gallery__link" href="assets/office-2.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-          <img src="assets/office-2.webp" width="1002" height="1280" loading="lazy" decoding="async" alt="Офис с узорчатой напольной плиткой и выходом">
-          <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-        </a>
-      </div>
-      <dl><div><dt>Площадь</dt><dd>от 10 м²</dd></div><div><dt>Состояние</dt><dd>С ремонтом и без ремонта</dd></div></dl>
-      <p>По телефону подскажем, какие офисы доступны и когда их можно посмотреть.</p>
-      <a class="button button-primary" href="tel:+79122850046">Позвонить <span class="icon icon-phone" aria-hidden="true"></span></a>
-    </div>
-  </dialog>
-
-  <dialog id="storage-detail" aria-labelledby="storage-detail-title">
-    <div class="detail">
-      <button class="detail-close" type="button" data-close-detail aria-label="Закрыть" autofocus><span class="icon icon-close" aria-hidden="true"></span></button>
-      <h2 id="storage-detail-title">Склады</h2>
-      <div class="photo-gallery" role="group" aria-label="Фотографии склада">
-        <a class="photo-gallery__link" href="assets/storage-1.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-          <img src="assets/storage-1.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Складской зал с колоннами и окнами по обеим сторонам">
-          <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-        </a>
-        <a class="photo-gallery__link" href="assets/storage-2.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-          <img src="assets/storage-2.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Складское помещение с окном и батареей">
-          <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-        </a>
-      </div>
-      <dl><div><dt>Площадь</dt><dd>от 50 м²</dd></div><div><dt>Логистика на территории</dt><dd>4 въезда, грузовые лифты</dd></div></dl>
-      <p>Позвоните, чтобы уточнить размеры, условия разгрузки и доступность склада.</p>
-      <a class="button button-primary" href="tel:+79122850046">Позвонить <span class="icon icon-phone" aria-hidden="true"></span></a>
-    </div>
-  </dialog>
-
-  <dialog id="production-detail" aria-labelledby="production-detail-title">
-    <div class="detail">
-      <button class="detail-close" type="button" data-close-detail aria-label="Закрыть" autofocus><span class="icon icon-close" aria-hidden="true"></span></button>
-      <h2 id="production-detail-title">Производство</h2>
-      <div class="photo-gallery" role="group" aria-label="Фотографии цеха">
-        <a class="photo-gallery__link" href="assets/production-1.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-          <img src="assets/production-1.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Просторный цех с бетонным полом и белыми колоннами">
-          <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-        </a>
-        <a class="photo-gallery__link" href="assets/production-2.webp" target="_blank" rel="noopener" title="Открыть фото в полном размере">
-          <img src="assets/production-2.webp" width="902" height="1280" loading="lazy" decoding="async" alt="Цех с бетонным полом и электрощитом">
-          <span class="sr-only"> — открыть в новой вкладке</span><span class="photo-gallery__open icon icon-up-right" aria-hidden="true"></span>
-        </a>
-      </div>
-      <dl><div><dt>Площадь</dt><dd>от 65 м²</dd></div><div><dt>Особенности</dt><dd>Высокие потолки, мощности под оборудование</dd></div></dl>
-      <p>Расскажите, какое оборудование планируете разместить, чтобы уточнить параметры цеха.</p>
+      <h2 id="listing-detail-title" data-detail-title>Помещение</h2>
+      <a class="detail-photo" data-detail-photo target="_blank" rel="noopener"
+        aria-label="Открыть фото в полном размере в новой вкладке">
+        <img data-detail-image alt="">
+        <span class="detail-photo__open icon icon-up-right" aria-hidden="true"></span>
+      </a>
+      <p>Описание добавим позже.</p>
       <a class="button button-primary" href="tel:+79122850046">Позвонить <span class="icon icon-phone" aria-hidden="true"></span></a>
     </div>
   </dialog>

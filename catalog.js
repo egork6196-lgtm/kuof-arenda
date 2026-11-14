@@ -49,19 +49,33 @@ function isBackdropEvent(event, dialog) {
     event.clientY < bounds.top || event.clientY > bounds.bottom;
 }
 
-for (const opener of document.querySelectorAll('[data-open-detail]')) {
-  const dialog = document.getElementById(opener.dataset.openDetail);
+const dialog = document.getElementById('listing-detail');
 
-  if (typeof dialog?.showModal !== 'function') {
-    continue;
-  }
-
+if (typeof dialog?.showModal === 'function') {
+  const detailTitle = dialog.querySelector('[data-detail-title]');
+  const detailImage = dialog.querySelector('[data-detail-image]');
+  const detailPhoto = dialog.querySelector('[data-detail-photo]');
+  let previousOpener;
   let pointerStartedOnBackdrop = false;
 
-  opener.addEventListener('click', () => {
-    pointerStartedOnBackdrop = false;
-    dialog.showModal();
-  });
+  for (const opener of document.querySelectorAll('[data-open-detail]')) {
+    const card = opener.closest('.listing-card');
+    const title = card.querySelector('h3');
+    const image = card.querySelector('img');
+
+    opener.addEventListener('click', () => {
+      detailTitle.textContent = title.textContent;
+      detailImage.alt = image.alt;
+      detailImage.setAttribute('width', image.getAttribute('width'));
+      detailImage.setAttribute('height', image.getAttribute('height'));
+      detailImage.src = image.src;
+      detailPhoto.href = image.src;
+      previousOpener = opener;
+      pointerStartedOnBackdrop = false;
+      dialog.showModal();
+    });
+    opener.hidden = false;
+  }
 
   for (const closer of dialog.querySelectorAll('[data-close-detail]')) {
     closer.addEventListener('click', () => dialog.close());
@@ -80,8 +94,6 @@ for (const opener of document.querySelectorAll('[data-open-detail]')) {
   });
 
   dialog.addEventListener('close', () => {
-    opener.focus({ preventScroll: true });
+    previousOpener?.focus({ preventScroll: true });
   });
-
-  opener.hidden = false;
 }
