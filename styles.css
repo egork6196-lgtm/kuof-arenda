@@ -81,7 +81,7 @@ p { color: var(--muted); }
   background: var(--paper);
 }
 
-.hero > .wrap { width: auto; margin-inline: clamp(18px, 1.7vw, 40px); }
+.hero > .wrap { width: auto; margin-inline: clamp(18px, 2.7vw, 56px) clamp(18px, 1.7vw, 40px); }
 .hero-copy { position: relative; z-index: 1; max-width: min(820px, 68%); }
 .location { display: flex; align-items: center; gap: 9px; margin-bottom: 23px; font-size: 14px; font-weight: 550; }
 .location .icon { color: var(--focus); }
