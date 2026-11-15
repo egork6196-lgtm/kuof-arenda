@@ -154,44 +154,43 @@ if (typeof dialog?.showModal === 'function') {
 }
 
 const catalog = document.querySelector('.catalog');
-const catalogHeading = catalog?.querySelector('.catalog-heading');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const navigationType = performance.getEntriesByType('navigation')[0]?.type;
 
-if (catalogHeading && !reducedMotion.matches && !window.location.hash && window.scrollY === 0 &&
-    navigationType !== 'back_forward' &&
-    catalogHeading.getBoundingClientRect().bottom > window.innerHeight * 0.74) {
+if (catalog && !reducedMotion.matches && 'IntersectionObserver' in window) {
   let revealingPanel;
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries.find(entry => entry.isIntersecting && !entry.target.hidden);
+    if (!visible) {
+      return;
+    }
+
+    observer.disconnect();
+    catalog.classList.remove('is-awaiting-reveal');
+    revealingPanel = visible.target;
+    revealingPanel.classList.add('is-revealing');
+  }, { rootMargin: '0px 0px -100px 0px' });
 
   function finishReveal() {
-    window.removeEventListener('scroll', revealOnScroll);
+    observer.disconnect();
     catalog.classList.remove('is-awaiting-reveal');
     revealingPanel?.classList.remove('is-revealing');
     revealingPanel = null;
   }
 
-  function revealOnScroll() {
-    if (catalogHeading.getBoundingClientRect().bottom > window.innerHeight * 0.74) {
-      return;
+  function finishIfPanelChanged() {
+    if (revealingPanel?.hidden) {
+      finishReveal();
     }
-
-    window.removeEventListener('scroll', revealOnScroll);
-    catalog.classList.remove('is-awaiting-reveal');
-    revealingPanel = catalog.querySelector('[data-category-panel]:not([hidden])');
-    revealingPanel?.classList.add('is-revealing');
   }
 
   catalog.classList.add('is-awaiting-reveal');
-  window.addEventListener('scroll', revealOnScroll, { passive: true });
-  categorySelect?.addEventListener('change', finishReveal);
-  reducedMotion.addEventListener('change', finishReveal, { once: true });
+  for (const panel of catalog.querySelectorAll('[data-category-panel]')) {
+    observer.observe(panel);
+  }
 
-  window.addEventListener('hashchange', () => {
-    const section = document.getElementById(window.location.hash.slice(1));
-    if (section?.matches('[data-category-panel]')) {
-      finishReveal();
-    }
-  });
+  categorySelect?.addEventListener('change', finishIfPanelChanged);
+  window.addEventListener('hashchange', finishIfPanelChanged);
+  reducedMotion.addEventListener('change', finishReveal, { once: true });
 
   catalog.addEventListener('focusin', event => {
     if (event.target.closest('.listing-card')) {
@@ -200,7 +199,8 @@ if (catalogHeading && !reducedMotion.matches && !window.location.hash && window.
   });
 
   catalog.addEventListener('animationend', event => {
-    if (revealingPanel && event.target === revealingPanel.lastElementChild) {
+    if (revealingPanel && event.animationName === 'listing-reveal' &&
+        event.target === revealingPanel.lastElementChild) {
       finishReveal();
     }
   });
