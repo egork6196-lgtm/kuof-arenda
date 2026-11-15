@@ -19,6 +19,27 @@
   background: var(--pale);
 }
 
+.catalog.is-awaiting-reveal .listing-card {
+  opacity: 0;
+  transform: translateY(48px);
+}
+
+.listing-grid.is-revealing .listing-card {
+  animation: listing-reveal .62s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.listing-grid.is-revealing .listing-card + .listing-card { animation-delay: .17s; }
+
+@keyframes listing-reveal {
+  from { opacity: 0; transform: translateY(48px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog.is-awaiting-reveal .listing-card { opacity: 1; transform: none; }
+  .listing-grid.is-revealing .listing-card { animation: none; }
+}
+
 .listing-card > img {
   width: 100%;
   height: 100%;
