@@ -31,8 +31,6 @@ function typeHeroCopy() {
           delay += 38;
         }
         node.replaceWith(characters);
-      } else if (node.hasAttribute('data-type-tail')) {
-        revealAt(node);
       }
     }
 
